@@ -7,6 +7,7 @@ import {
   MuiPickersUtilsProvider,
 } from "material-ui-pickers";
 import DateFnsUtils from "@date-io/date-fns";
+import { setDate } from "date-fns";
 
 function AddNewTodo() {
   const [showModal, setShowModal] = useState(false);
@@ -42,14 +43,14 @@ function AddNewTodo() {
                 <CalendarDay />
                 <p>Choose a day</p>
               </div>
-              <DatePicker />
+              <DatePicker value={day} onChange={(day) => setDay(day)} />
             </div>
             <div className="pick-time">
               <div className="title">
                 <Clock />
                 <p>Choose time</p>
               </div>
-              <TimePicker />
+              <TimePicker value={time} onChange={(time) => setTime(time)} />
             </div>
             <div className="pick-project">
               <div className="title">
@@ -60,6 +61,7 @@ function AddNewTodo() {
                 <div className="project active">personal</div>
 
                 <div className="project">work</div>
+                <div className="project">other</div>
               </div>
             </div>
             <div className="cancel" onClick={() => setShowModal(false)}>
